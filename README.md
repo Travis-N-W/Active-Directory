@@ -1,8 +1,5 @@
 # Active Directory Homelab
 
-## Disclaimer
-This project is for educational and ethical testing purposes only. Unauthorized use of Active Directory configurations for malicious purposes is illegal. Ensure you have permission before conducting any security or administrative assessments.
-
 ## Brief Objective
 The objective of this project was to set up a Windows Server 2019 Active Directory Domain Controller in a virtualized environment using Oracle VirtualBox and configure a Windows 10 client to join the domain. The process involved:
 - Promoting the server to a domain controller
