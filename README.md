@@ -16,10 +16,15 @@ This setup enabled CLIENT1 to automatically receive an IP address and authentica
 - Network Configuration
 - System Administration
 - DHCP and IP Management
+- User Account Management
+- PowerShell Scripting
 
 ## Tools Used
 - Oracle VirtualBox
 - Windows Server Manager
+- PowerShell
+- Active Directory Users and Computers
+- DHCP and DNS Management
 
 ## Steps
 
@@ -63,7 +68,13 @@ This setup enabled CLIENT1 to automatically receive an IP address and authentica
   - Subnet Mask: `255.255.255.0`
   - Default Gateway: `172.16.0.1`
 
-### 8. Populating Users via PowerShell Script
+### 8. Configuring DNS for Domain Resolution
+- Open **DNS Manager**.
+- Add a new **Forward Lookup Zone**.
+- Create an **A Record** for the domain.
+- Verify DNS settings using `nslookup`.
+
+### 9. Populating Users via PowerShell Script
 - Download the [PowerShell script](https://github.com/joshmadakor1/AD_PS/archive/master.zip).
 - Run the script in PowerShell with administrative privileges:
   ```powershell
@@ -72,7 +83,7 @@ This setup enabled CLIENT1 to automatically receive an IP address and authentica
   ```
 - Verify user creation in **Active Directory Users and Computers**.
 
-### 9. Setting Up Windows 10 Client (CLIENT1)
+### 10. Setting Up Windows 10 Client (CLIENT1)
 - Download Windows 10 Enterprise from [Microsoft](https://www.microsoft.com/en-gb/software-download/windows10).
 - Configure network settings in VirtualBox:
   - Adapter 1: Internal network
@@ -81,17 +92,28 @@ This setup enabled CLIENT1 to automatically receive an IP address and authentica
   ipconfig
   ```
 
-### 10. Joining CLIENT1 to the Domain
+### 11. Joining CLIENT1 to the Domain
 - Go to **System Settings > Rename this PC (Advanced) > Change**.
 - Enter `mydomain.com` as the domain.
 - Authenticate with the admin account `a-jsmith`.
 - Restart the client and log in with domain credentials.
 
-### 11. Verifying CLIENT1's Domain Connection
+### 12. Verifying CLIENT1's Domain Connection
 - Check **DHCP leases** in the Domain Controller.
 - Confirm CLIENT1 is listed under **Active Directory Computers**.
 - Run the following command in Command Prompt:
   ```cmd
   whoami
   ```
+
+### 13. Testing Group Policy Application
+- Open **Group Policy Management**.
+- Create a new **GPO** and link it to the domain.
+- Configure policies such as password complexity, login messages, or desktop restrictions.
+- Run `gpupdate /force` on CLIENT1 to apply policies.
+
+### 14. Monitoring and Logging with Event Viewer
+- Open **Event Viewer** on the Domain Controller.
+- Monitor **Security Logs** for login attempts and authentication failures.
+- Configure **Audit Policies** for user activities.
 
