@@ -1,7 +1,7 @@
 # Active Directory Homelab
 
 ## 📸 Project Screenshots
-Click [here](https://github.com/Travis-N-W/GoPhish/tree/main/screenshots) to view all screenshots.
+Click [here](https://github.com/Travis-N-W/Active-Directory/tree/main/screenshots) to view all screenshots.
 
 ## Brief Objective
 The objective of this project was to set up a Windows Server 2019 Active Directory Domain Controller in a virtualized environment using Oracle VirtualBox and configure a Windows 10 client to join the domain. The process involved:
