@@ -26,6 +26,10 @@ This setup enabled CLIENT1 to automatically receive an IP address and authentica
 - Active Directory Users and Computers
 - DHCP and DNS Management
 
+## Network Architecture
+
+![diahgram](https://github.com/user-attachments/assets/d09efc37-7189-4952-af93-151f31871171)
+
 ## Steps
 
 ### 1. Downloading and Installing VirtualBox
@@ -106,14 +110,4 @@ This setup enabled CLIENT1 to automatically receive an IP address and authentica
   whoami
   ```
 
-### 13. Testing Group Policy Application
-- Open **Group Policy Management**.
-- Create a new **GPO** and link it to the domain.
-- Configure policies such as password complexity, login messages, or desktop restrictions.
-- Run `gpupdate /force` on CLIENT1 to apply policies.
-
-### 14. Monitoring and Logging with Event Viewer
-- Open **Event Viewer** on the Domain Controller.
-- Monitor **Security Logs** for login attempts and authentication failures.
-- Configure **Audit Policies** for user activities.
 
